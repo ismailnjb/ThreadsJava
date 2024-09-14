@@ -1,5 +1,7 @@
 package backend;
 
+import java.util.Scanner;
+
 public class ThreadExample extends Thread {
 
     private String threadName;
@@ -10,7 +12,7 @@ public class ThreadExample extends Thread {
     }
 
     public void run() {
-        while (counter<1000000000){
+        while (counter<1000){
             counter++;
         }
 
@@ -25,8 +27,13 @@ public class ThreadExample extends Thread {
         thread2.start();
         thread3.start();
 
+        //To make the program wait to complete multi threading
+        Scanner scanner=new Scanner(System.in);
+        scanner.nextInt();
+
         System.out.println(thread1.counter);
         System.out.println(thread2.counter);
         System.out.println(thread3.counter);
+
     }
 }
